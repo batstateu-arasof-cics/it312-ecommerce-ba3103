@@ -21,4 +21,9 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function lineTotal(): float
+    {
+        return round((float) $this->unit_price * $this->quantity, 2);
+    }
 }
